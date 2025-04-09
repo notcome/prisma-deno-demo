@@ -21,4 +21,4 @@ deno task prisma:init
 deno task prisma:sync
 # This runs the demo script
 deno task demo
-``
+```
