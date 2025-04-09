@@ -1,0 +1,25 @@
+generator client {
+  // Required
+  provider = "prisma-client-ts"
+  output   = "../generated/prisma"
+
+  // Optional
+  runtime                = "deno"
+  generatedFileExtension = "ts"
+  importFileExtension    = "ts"
+  moduleFormat           = "esm"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model KeyValuePairs {
+  scope String
+  key   String
+  value Bytes
+
+  @@id([scope, key])
+  @@map("key_value_pairs")
+}
